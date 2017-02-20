@@ -9,8 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var questionLable: UILabel!
-    @IBOutlet var answerLable: UILabel!
+    //@IBOutlet var questionLabel: UILabel!
+    @IBOutlet var currentQuestionLabel: UILabel!
+    @IBOutlet var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet var nextQuestionLabel: UILabel!
+    @IBOutlet var nextQuestionLabelCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet var answerLabel: UILabel!
     
     let questions: [String] = [
         "What is 7+7?",
@@ -33,18 +37,48 @@ class ViewController: UIViewController {
         }
         
         let question: String = questions[currentQuestionIndex]
-        questionLable.text = question
-        answerLable.text = "???"
+        nextQuestionLabel.text = question
+        answerLabel.text = "???"
     }
 
     @IBAction func showAnswer(_ sender: UIButton){
         let answer: String = answers[currentQuestionIndex]
-        answerLable.text = answer
+        answerLabel.text = answer
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLable.text = questions[currentQuestionIndex]
+        currentQuestionLabel.text = questions[currentQuestionIndex]
+    }
+    
+    func animateLabelTransitions(){
+        /*let animationClosure = {() -> Void in
+        //    self.questionLabel.alpha = 1
+        //}
+            
+        //Animate the alpha
+        UIView.animate(withDuration: 0.5, animations: {
+            self.currentQuestionLabel.alpha = 1
+            self.nextQuestionLabel.alpha = 1
+        })*/
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [],
+            animations:{
+                self.currentQuestionLabel.alpha = 1
+                self.nextQuestionLabel.alpha = 1
+        },
+            completion: {_ in
+                swap(&self.currentQuestionLabel,&self.nextQuestionLabel)}
+        )
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //set the label's initial alpha
+        nextQuestionLabel.alpha = 0
     }
     
 }
