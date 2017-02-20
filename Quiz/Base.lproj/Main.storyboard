@@ -21,6 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-SQ-vrQ">
+                                <rect key="frame" x="166" y="147" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-Gd-W0h">
                                 <rect key="frame" x="175" y="147" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,21 +41,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-K1-YPd">
-                                <rect key="frame" x="137" y="379" width="100" height="30"/>
+                                <rect key="frame" x="137" y="380" width="100" height="30"/>
                                 <state key="normal" title="Show Answers"/>
                                 <connections>
                                     <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kCC-Yf-IPc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RA-i6-T3n">
-                                <rect key="frame" x="175" y="323" width="25" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-SQ-vrQ">
-                                <rect key="frame" x="77" y="147" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="175" y="323" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,7 +61,9 @@
                             <constraint firstItem="Apu-Gd-W0h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C4l-dC-N06"/>
                             <constraint firstItem="jK2-fw-1r9" firstAttribute="top" secondItem="Apu-Gd-W0h" secondAttribute="bottom" constant="1" id="Kiz-Y9-PNb"/>
                             <constraint firstItem="Apu-Gd-W0h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="127" id="NPs-eT-n5F"/>
+                            <constraint firstItem="2ye-SQ-vrQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PrC-uk-Mbq"/>
                             <constraint firstItem="3RA-i6-T3n" firstAttribute="centerX" secondItem="jK2-fw-1r9" secondAttribute="centerX" id="XkR-DY-XBe"/>
+                            <constraint firstItem="2ye-SQ-vrQ" firstAttribute="top" secondItem="Apu-Gd-W0h" secondAttribute="top" id="YV4-ou-1Ho"/>
                             <constraint firstItem="3RA-i6-T3n" firstAttribute="top" secondItem="jK2-fw-1r9" secondAttribute="bottom" constant="124" id="Ytt-2E-1Iq"/>
                             <constraint firstItem="hiH-K1-YPd" firstAttribute="top" secondItem="3RA-i6-T3n" secondAttribute="bottom" constant="35.5" id="vul-II-GQF"/>
                         </constraints>
@@ -70,7 +71,9 @@
                     <connections>
                         <outlet property="answerLabel" destination="3RA-i6-T3n" id="UTS-wa-sDE"/>
                         <outlet property="currentQuestionLabel" destination="Apu-Gd-W0h" id="MIa-wC-uAh"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="1oS-7D-nA5" id="TNw-Ly-gYe"/>
                         <outlet property="nextQuestionLabel" destination="2ye-SQ-vrQ" id="eNj-fd-5uX"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="PrC-uk-Mbq" id="EFx-VG-wmG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
