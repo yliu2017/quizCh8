@@ -50,13 +50,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentQuestionLabel.text = questions[currentQuestionIndex]
+        //silver challenge
         
-        updateOffScreenLabel()
+        // Disable current centerX constraint of nextQuestionLabel
+        nextQuestionLabelCenterXConstraint.isActive = false
+        
+        //create a UILayoutGuide
+        let space = UILayoutGuide()
+        self.view.addLayoutGuide(space)
+        space.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        nextQuestionLabel.centerXAnchor.constraint(equalTo: space.leadingAnchor).isActive = true
+        currentQuestionLabel.centerXAnchor.constraint(equalTo: space.trailingAnchor).isActive = true
+ 
+        //updateOffScreenLabel()
     }
     
     func updateOffScreenLabel(){
-        let screenWidth = view.frame.width
-        nextQuestionLabelCenterXConstraint.constant = -screenWidth
+       let screenWidth = view.frame.width
+       nextQuestionLabelCenterXConstraint.constant = -screenWidth
+       currentQuestionLabelCenterXConstraint.constant = -screenWidth
+        
+       print("\(screenWidth)")
     }
     
     func animateLabelTransitions(){
@@ -68,8 +82,11 @@ class ViewController: UIViewController {
         //And the center X Constraints
         
         let screenWidth = view.frame.width
-        self.nextQuestionLabelCenterXConstraint.constant = 0
+        //nextQuestionLabel.centerXAnchor.constraint(equalTo: currentQuestionLabel.centerXAnchor, constant: -screenWidth).isActive = true
+        
+        //self.nextQuestionLabelCenterXConstraint.constant += screenWidth
         self.currentQuestionLabelCenterXConstraint.constant += screenWidth
+        
         /*
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -96,21 +113,32 @@ class ViewController: UIViewController {
                        usingSpringWithDamping: 0.5,
                        initialSpringVelocity: 5,
                        options: [.curveLinear],
-                       animations:{
+                       /*animations:{
                         self.currentQuestionLabel.alpha = 0
                         self.nextQuestionLabel.alpha = 1
                         
                         self.view.layoutIfNeeded()
-        },
+                        },
                        completion: { _ in
                         swap(&self.currentQuestionLabel,&self.nextQuestionLabel)
                         swap(&self.currentQuestionLabelCenterXConstraint,
-                             &self.nextQuestionLabelCenterXConstraint)
-                        
+                            &self.nextQuestionLabelCenterXConstraint)
+                        //self.currentQuestionLabelCenterXConstraint.constant = 0
+                        //self.view.layoutIfNeeded()
                         self.updateOffScreenLabel()
-        }
-            
-        )
+ */
+            animations: {
+                self.currentQuestionLabel.alpha = 0
+                self.nextQuestionLabel.alpha = 1
+                self.view.layoutIfNeeded()
+        },
+            completion: { _ in
+                self.currentQuestionLabel.text = self.nextQuestionLabel.text
+                self.currentQuestionLabel.alpha = 1
+                self.currentQuestionLabelCenterXConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                self.nextQuestionLabel.alpha = 0
+        })
     }
     
         
