@@ -58,13 +58,13 @@
                         <constraints>
                             <constraint firstItem="Apu-Gd-W0h" firstAttribute="centerX" secondItem="jK2-fw-1r9" secondAttribute="centerX" id="1oS-7D-nA5"/>
                             <constraint firstItem="hiH-K1-YPd" firstAttribute="centerX" secondItem="jK2-fw-1r9" secondAttribute="centerX" id="1t3-Ud-5id"/>
-                            <constraint firstItem="Apu-Gd-W0h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C4l-dC-N06"/>
                             <constraint firstItem="jK2-fw-1r9" firstAttribute="top" secondItem="Apu-Gd-W0h" secondAttribute="bottom" constant="1" id="Kiz-Y9-PNb"/>
                             <constraint firstItem="Apu-Gd-W0h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="127" id="NPs-eT-n5F"/>
                             <constraint firstItem="2ye-SQ-vrQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PrC-uk-Mbq"/>
                             <constraint firstItem="3RA-i6-T3n" firstAttribute="centerX" secondItem="jK2-fw-1r9" secondAttribute="centerX" id="XkR-DY-XBe"/>
                             <constraint firstItem="2ye-SQ-vrQ" firstAttribute="top" secondItem="Apu-Gd-W0h" secondAttribute="top" id="YV4-ou-1Ho"/>
                             <constraint firstItem="3RA-i6-T3n" firstAttribute="top" secondItem="jK2-fw-1r9" secondAttribute="bottom" constant="124" id="Ytt-2E-1Iq"/>
+                            <constraint firstItem="jK2-fw-1r9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cGi-yt-gAb"/>
                             <constraint firstItem="hiH-K1-YPd" firstAttribute="top" secondItem="3RA-i6-T3n" secondAttribute="bottom" constant="35.5" id="vul-II-GQF"/>
                         </constraints>
                     </view>

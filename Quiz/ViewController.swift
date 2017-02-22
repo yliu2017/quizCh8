@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         let question: String = questions[currentQuestionIndex]
         nextQuestionLabel.text = question
         answerLabel.text = "???"
+        
+        animateLabelTransitions()
     }
 
     @IBAction func showAnswer(_ sender: UIButton){
