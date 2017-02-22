@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         let screenWidth = view.frame.width
         self.nextQuestionLabelCenterXConstraint.constant = 0
         self.currentQuestionLabelCenterXConstraint.constant += screenWidth
-        
+        /*
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.curveLinear],
@@ -89,8 +89,31 @@ class ViewController: UIViewController {
         }
             
         )
-        
+ 
+    }*/
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 5,
+                       options: [.curveLinear],
+                       animations:{
+                        self.currentQuestionLabel.alpha = 0
+                        self.nextQuestionLabel.alpha = 1
+                        
+                        self.view.layoutIfNeeded()
+        },
+                       completion: { _ in
+                        swap(&self.currentQuestionLabel,&self.nextQuestionLabel)
+                        swap(&self.currentQuestionLabelCenterXConstraint,
+                             &self.nextQuestionLabelCenterXConstraint)
+                        
+                        self.updateOffScreenLabel()
+        }
+            
+        )
     }
+    
+        
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
