@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Quiz
-//
-//  Created by Yingqi Liu on 1/20/17.
+//  Quiz for Chapter8
+//  Finished Silver Challenge
+//  Created by Yingqi Liu on 2/20/17.
 //  Copyright © 2017 Yingqi Liu. All rights reserved.
 //
 
@@ -86,60 +86,26 @@ class ViewController: UIViewController {
         
         //self.nextQuestionLabelCenterXConstraint.constant += screenWidth
         self.currentQuestionLabelCenterXConstraint.constant += screenWidth
-        
-        /*
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       options: [.curveLinear],
-            animations:{
-                self.currentQuestionLabel.alpha = 0
-                self.nextQuestionLabel.alpha = 1
-                
-                self.view.layoutIfNeeded()
-        },
-            completion: { _ in
-                swap(&self.currentQuestionLabel,&self.nextQuestionLabel)
-                swap(&self.currentQuestionLabelCenterXConstraint,
-                     &self.nextQuestionLabelCenterXConstraint)
-        
-                self.updateOffScreenLabel()
-        }
-            
-        )
- 
-    }*/
+    
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 0.5,
                        initialSpringVelocity: 5,
                        options: [.curveLinear],
-                       /*animations:{
-                        self.currentQuestionLabel.alpha = 0
-                        self.nextQuestionLabel.alpha = 1
-                        
-                        self.view.layoutIfNeeded()
+             
+                       animations: {
+                            self.currentQuestionLabel.alpha = 0
+                            self.nextQuestionLabel.alpha = 1
+                            self.view.layoutIfNeeded()
                         },
                        completion: { _ in
-                        swap(&self.currentQuestionLabel,&self.nextQuestionLabel)
-                        swap(&self.currentQuestionLabelCenterXConstraint,
-                            &self.nextQuestionLabelCenterXConstraint)
-                        //self.currentQuestionLabelCenterXConstraint.constant = 0
-                        //self.view.layoutIfNeeded()
-                        self.updateOffScreenLabel()
- */
-            animations: {
-                self.currentQuestionLabel.alpha = 0
-                self.nextQuestionLabel.alpha = 1
-                self.view.layoutIfNeeded()
-        },
-            completion: { _ in
-                self.currentQuestionLabel.text = self.nextQuestionLabel.text
-                self.currentQuestionLabel.alpha = 1
-                self.currentQuestionLabelCenterXConstraint.constant = 0
-                self.view.layoutIfNeeded()
-                self.nextQuestionLabel.alpha = 0
-        })
-    }
+                            self.currentQuestionLabel.text = self.nextQuestionLabel.text
+                            self.currentQuestionLabel.alpha = 1
+                            self.currentQuestionLabelCenterXConstraint.constant = 0
+                            self.view.layoutIfNeeded()
+                            self.nextQuestionLabel.alpha = 0
+                        })
+        }
     
         
     
